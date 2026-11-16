@@ -1,37 +1,976 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rubric Studio | 7-minute activity</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rubric Studio | Edit the rubric</title>
 <style>
-:root{--ink:#19342f;--muted:#60736d;--paper:#f5f7f2;--card:#fff;--green:#176b55;--mint:#e3f2eb;--gold:#efb84a;--line:#dbe4dc;--shadow:0 14px 38px #173b2c12}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}header{background:#153c32;color:white;padding:24px max(22px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.04em}.timer{border:1px solid #ffffff55;border-radius:999px;padding:8px 14px;font-variant-numeric:tabular-nums}main{max-width:1120px;margin:36px auto;padding:0 22px}.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:28px;align-items:end;margin-bottom:28px}.eyebrow{color:var(--green);font-size:.77rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}h1{font-size:clamp(2rem,4vw,3.6rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0 14px}.hero p{font-size:1.08rem;color:var(--muted);max-width:650px}.goal{border-left:3px solid var(--gold);padding:8px 0 8px 18px;color:var(--muted)}.goal strong{color:var(--ink);display:block}.layout{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start}.rail,.panel,.worked{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.rail{padding:15px;position:sticky;top:18px}.rail-title{padding:3px 9px 10px;color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.step{display:flex;gap:11px;align-items:flex-start;padding:10px;border-radius:12px;color:var(--muted);font-size:.9rem}.step b{display:grid;place-items:center;flex:none;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;font-size:.8rem}.step.active{background:var(--mint);color:var(--ink);font-weight:700}.step.active b,.step.done b{background:var(--green);border-color:var(--green);color:white}.rail-note{border-top:1px solid var(--line);margin-top:10px;padding:14px 9px 4px;color:var(--muted);font-size:.84rem}.content{display:grid;gap:18px}.panel{padding:clamp(20px,4vw,34px)}.panel-top{display:flex;justify-content:space-between;gap:16px;align-items:center}.tag{color:var(--green);background:var(--mint);border-radius:999px;padding:5px 11px;font-size:.78rem;font-weight:800}.panel h2{font-size:1.65rem;line-height:1.2;margin:9px 0}.sub{color:var(--muted);margin:0 0 20px}.worked{padding:20px 22px;background:#f0f5ef;box-shadow:none}.worked h3{margin:0 0 8px;font-size:1rem}.worked p{margin:5px 0;color:var(--muted);font-size:.92rem}.pill{display:inline-block;background:white;border:1px solid var(--line);padding:3px 9px;border-radius:999px;margin:3px 4px 0 0;font-size:.79rem;color:var(--ink)}.field{display:grid;gap:6px;margin:15px 0}.field label{font-weight:750}.hint{color:var(--muted);font-size:.87rem}.field input,.field textarea,.field select{width:100%;font:inherit;color:var(--ink);background:#fff;border:1px solid #cbd8cd;border-radius:11px;padding:12px 13px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green);box-shadow:0 0 0 3px #176b5520}.field textarea{min-height:86px;resize:vertical}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}.level{background:#f6f8f5;border:1px solid var(--line);border-radius:12px;padding:11px}.level strong{display:block;font-size:.85rem}.level span{font-size:.78rem;color:var(--muted)}.row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.row .field{margin:0}.row label{font-size:.79rem}.actions{display:flex;justify-content:space-between;gap:10px;margin-top:24px}.btn{border:0;border-radius:11px;padding:11px 17px;font:inherit;font-weight:750;cursor:pointer}.primary{background:var(--green);color:#fff}.primary:hover{background:#10543f}.secondary{background:#edf2ed;color:var(--ink)}.secondary:hover{background:#e1ebe3}.hidden{display:none!important}.feedback{font-size:.86rem;color:#a25031;margin-top:7px}.success{color:var(--green)}.rubric-output{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.rubric-heading{padding:20px 22px;background:#153c32;color:#fff;border-bottom:4px solid var(--gold)}.rubric-heading .rubric-kicker{font-size:.72rem;letter-spacing:.13em;font-weight:850;text-transform:uppercase;color:#bfe4d5}.rubric-heading h3{font-size:1.45rem;line-height:1.2;margin:6px 0 0}.rubric-meta{display:flex;flex-wrap:wrap;gap:8px 20px;padding:12px 20px;background:#f1f6f1;border-bottom:1px solid var(--line);font-size:.9rem}.rubric-meta b{color:var(--green)}.rubric-table-wrap{overflow-x:auto}.rubric-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.88rem}.rubric-table th{padding:12px 13px;text-align:left;background:var(--green);color:white;vertical-align:top;border-right:1px solid #ffffff38}.rubric-table th:first-child{width:18%;background:#153c32}.rubric-table th:last-child{border-right:0}.rubric-table th small{display:block;margin-top:4px;color:#d2eee3;font-weight:600}.rubric-table td{padding:13px;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow-wrap:anywhere;white-space:pre-wrap;line-height:1.45}.rubric-table td:last-child{border-right:0}.rubric-table tr:last-child td{border-bottom:0}.rubric-table td:first-child{font-weight:800;background:#f1f6f1;color:var(--ink)}.rubric-table td:nth-child(2){background:#f5faf7}.rubric-table td:nth-child(3){background:#fbfcf8}.rubric-table td:nth-child(4){background:#fffaf0}.rubric-table td:nth-child(5){background:#fff7f2}.rubric-level-score{display:block;margin-top:8px;padding-top:7px;border-top:1px solid #cbd8cf;color:var(--green);font-size:.78rem;font-weight:800}.rubric-note{padding:13px 19px;background:#f9faf6;color:var(--muted);font-size:.83rem;border-top:1px solid var(--line)}.footer{text-align:center;color:var(--muted);font-size:.82rem;margin:22px 0 42px}
-@media print{body{background:#fff;font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}header,.hero,.rail,.footer,.actions,.hint,#copyFeedback,.section-banner,#quizSection{display:none!important}main{max-width:none;margin:0;padding:0}.layout{display:block}.content{display:block}.panel{display:none!important}.panel[data-page="5"]{display:block!important;border:0;box-shadow:none;padding:0}.panel[data-page="5"] h2{font-size:21pt;margin:0 0 6pt}.panel[data-page="5"] .sub{font-size:10pt;margin:0 0 14pt}.rubric-output{border:1px solid #9db3a6;border-radius:0;overflow:visible;break-inside:avoid}.rubric-heading{padding:13pt 15pt;background:#153c32!important;color:#fff!important;border-bottom:3pt solid #efb84a}.rubric-heading h3{font-size:16pt}.rubric-meta{padding:8pt 12pt;background:#f1f6f1!important}.rubric-table-wrap{overflow:visible}.rubric-table{font-size:8.5pt}.rubric-table th{background:#176b55!important;color:#fff!important;padding:8pt 7pt}.rubric-table th:first-child{background:#153c32!important;width:17%}.rubric-table td{padding:9pt 7pt;line-height:1.35;overflow-wrap:anywhere}.rubric-table td:first-child{background:#f1f6f1!important}.rubric-table td:nth-child(2){background:#f5faf7!important}.rubric-table td:nth-child(3){background:#fbfcf8!important}.rubric-table td:nth-child(4){background:#fffaf0!important}.rubric-table td:nth-child(5){background:#fff7f2!important}.rubric-level-score{font-size:7.7pt}.rubric-note{padding:8pt 12pt;background:#f9faf6!important}.facilitator-close{display:none!important}.callout{margin-top:12pt;background:#fff!important;border:1px solid #dbe4dc;color:#222}.callout:before{content:"FACILITATOR CLOSE  ";font-weight:bold;color:#176b55}}.callout{padding:12px 15px;border-radius:12px;background:#fff8e9;border:1px solid #f2dfb0;color:#68552d;font-size:.9rem}.section-banner{display:flex;align-items:center;gap:12px;background:#153c32;color:#fff;padding:15px 20px;border-radius:15px;margin-bottom:18px;border-bottom:3px solid var(--gold)}.section-banner span{color:#bfe4d5;font-size:.75rem;font-weight:850;letter-spacing:.12em}.section-banner b{font-size:1.05rem}.section-banner small{margin-left:auto;color:#d7e8df}.quiz-question{padding:15px 17px;border:1px solid var(--line);border-radius:14px;margin:14px 0;background:#fff}.quiz-question fieldset{border:0;padding:0;margin:0}.quiz-question legend{font-weight:800;margin-bottom:9px;color:var(--ink)}.quiz-option{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:9px;color:#394d46;cursor:pointer}.quiz-option:hover{background:#f2f7f2}.quiz-option input{accent-color:var(--green);margin-top:5px;flex:none}.quiz-question.correct{border-color:#9ccab4;background:#f5faf7}.quiz-question.incorrect{border-color:#e7c7ae;background:#fffaf5}.quiz-feedback{margin:5px 10px 0;font-size:.83rem;color:var(--muted)}.quiz-result{font-weight:800;color:var(--green);margin:12px 0}.quiz-result.error{color:#a25031}
-@media(max-width:780px){.hero{grid-template-columns:1fr;gap:8px}.layout{grid-template-columns:1fr}.rail{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:9px}.rail-title,.rail-note{display:none}.step{padding:8px 5px;justify-content:center}.step span{display:none}.grid2{grid-template-columns:1fr}.levels{grid-template-columns:repeat(2,1fr)}}@media(max-width:440px){.row{grid-template-columns:1fr 1fr}.panel-top{align-items:flex-start}}
-</style></head>
+:root{
+  --deep:#10303f; --teal:#1f5c7a; --teal-d:#17475f; --cell:#d9dee6; --cell-focus:#e9edf3;
+  --ink:#1b2530; --muted:#5b6876; --paper:#f3f5f7; --line:#cfd6de; --amber:#f2b63c; --red:#d8452f;
+  --hl-y:#fff200; --hl-g:#b9f2a7; --hl-p:#ffc4e1;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+button{font:inherit;color:inherit;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+[hidden]{display:none!important}
+
+/* ---------- top bar ---------- */
+.bar{position:-webkit-sticky;position:sticky;top:0;z-index:20;background:var(--deep);color:#fff;box-shadow:0 2px 14px rgba(8,25,34,.28)}
+.bar-in{max-width:1280px;margin:0 auto;padding:0 18px}
+.row1{display:flex;align-items:center;gap:14px;padding:10px 0 8px}
+.brand{font-weight:800;letter-spacing:.09em;font-size:.82rem;text-transform:uppercase;color:#bcd6e2;flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.timer{display:flex;align-items:baseline;gap:9px;flex:none}
+.timer small{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#bcd6e2;font-weight:700}
+#clock{font-size:2rem;line-height:1;font-weight:800;font-variant-numeric:tabular-nums;font-feature-settings:"tnum";letter-spacing:.01em;min-width:5ch;text-align:center}
+.r1-end{flex:1 1 0;display:flex;justify-content:flex-end;min-width:0;gap:8px}
+.track{height:4px;background:rgba(255,255,255,.16);overflow:hidden}
+.track i{display:block;height:100%;width:100%;background:var(--amber);transform-origin:left center;transition:transform .3s linear}
+.bar.warn #clock{color:#ffd27a}
+.bar.warn .track i{background:#ff9b54}
+.bar.done #clock{color:#ff9d8c}
+.bar.done .track i{background:var(--red)}
+@keyframes pulse{50%{opacity:.55}}
+.bar.warn #clock{animation:pulse 1s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.bar.warn #clock{animation:none}.track i{transition:none}}
+
+.tools{display:flex;align-items:center;gap:8px;padding:8px 0 10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tools::-webkit-scrollbar{display:none}
+.btn{display:inline-flex;align-items:center;gap:7px;flex:none;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.08);color:#fff;border-radius:9px;padding:8px 12px;min-height:40px;font-weight:650;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.btn:hover{background:rgba(255,255,255,.17)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,.sw:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.btn[disabled]{opacity:.4;cursor:default}
+.btn svg{width:17px;height:17px;flex:none}
+.btn.icon{padding:8px 10px}
+.btn.go{background:var(--amber);border-color:var(--amber);color:#2a1f05;font-weight:800}
+.btn.go:hover{background:#ffc758}
+.hlgroup{display:inline-flex;align-items:center;flex:none;border:1px solid rgba(255,255,255,.26);border-radius:9px;background:rgba(255,255,255,.08)}
+.hlgroup .btn{border:0;background:transparent;border-radius:9px 0 0 9px;padding-right:9px}
+.hlgroup .btn:hover{background:rgba(255,255,255,.14)}
+.swatches{display:inline-flex;gap:6px;padding:0 10px 0 4px}
+.sw{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.5);padding:0;cursor:pointer;flex:none}
+.sw[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px var(--deep),0 0 0 4px #fff}
+.sw[data-c="y"]{background:var(--hl-y)} .sw[data-c="g"]{background:var(--hl-g)} .sw[data-c="p"]{background:var(--hl-p)}
+.gap{flex:1 1 auto;min-width:4px}
+
+/* ---------- page ---------- */
+main{max-width:1280px;margin:0 auto;padding:20px 18px 70px}
+.how{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 16px;padding:0;list-style:none;color:var(--muted);font-size:.93rem}
+.how li{display:flex;gap:8px;align-items:baseline}
+.how b{display:inline-grid;place-items:center;width:21px;height:21px;border-radius:50%;background:var(--teal);color:#fff;font-size:.74rem;flex:none;transform:translateY(-1px)}
+.endnote{margin:0 0 16px;padding:11px 14px;border-radius:10px;background:#fdecea;border:1px solid #f3c2ba;color:#7b2416;font-weight:650;font-size:.95rem}
+.sheet{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 10px 30px rgba(20,45,60,.07)}
+h1.ed{font:800 1.45rem/1.25 Arial,Helvetica,sans-serif;color:var(--teal-d);margin:0 0 14px;padding:4px 6px;border-radius:6px;outline:0}
+.ed{-webkit-user-select:text;user-select:text;outline:0;cursor:text;overflow-wrap:anywhere;word-break:break-word}
+h1.ed:hover{background:#f1f5f8}
+h1.ed:focus{background:#f1f5f8;box-shadow:inset 0 0 0 2px var(--amber)}
+
+.rubric{display:grid;grid-template-columns:.75fr repeat(4,1fr);grid-template-rows:auto 1fr;grid-auto-flow:column;gap:2px;font:14.5px/1.42 Arial,Helvetica,sans-serif}
+.col{display:contents}
+.cell{padding:10px 11px;min-height:2.6em}
+.cell.head{background:var(--teal);color:#fff;font-weight:700}
+.cell.body{background:var(--cell);color:#151b22}
+.cell.head:focus{box-shadow:inset 0 0 0 2px var(--amber)}
+.cell.body:focus{background:var(--cell-focus);box-shadow:inset 0 0 0 2px var(--teal)}
+.cell ul,.cell ol{margin:0;padding-left:1.2em}
+.cell li{margin:0 0 3px}
+.cell div,.cell p{margin:0 0 2px}
+mark{background:var(--hl-y);color:#111;border-radius:2px;padding:0 1px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark[data-c="g"]{background:var(--hl-g)} mark[data-c="p"]{background:var(--hl-p)}
+.saved{margin:12px 2px 0;color:var(--muted);font-size:.84rem}
+
+/* ---------- toast + dialog ---------- */
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:40;max-width:min(92vw,560px);background:#12222c;color:#fff;border-radius:11px;padding:11px 15px;font-size:.92rem;box-shadow:0 10px 30px rgba(0,0,0,.28);display:flex;gap:12px;align-items:center}
+.toast span{flex:1 1 auto;min-width:0}
+.toast button{border:0;background:transparent;color:#ffd27a;font-weight:750;padding:4px 2px;cursor:pointer;text-decoration:underline;flex:none;white-space:nowrap}
+@media (max-width:600px){.toast{left:12px;right:12px;bottom:14px;transform:none;max-width:none}}
+.veil{position:fixed;inset:0;z-index:50;background:rgba(10,24,32,.55);display:grid;place-items:center;padding:18px}
+.dlg{width:min(100%,430px);background:#fff;border-radius:16px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.dlg h2{margin:0 0 6px;font-size:1.2rem;color:var(--teal-d)}
+.dlg p{margin:0 0 16px;color:var(--muted);font-size:.95rem}
+.dlg .acts{display:flex;flex-direction:column;gap:9px}
+.dlg .acts.rowy{flex-direction:row;justify-content:flex-end;flex-wrap:wrap}
+.b2{display:inline-flex;justify-content:center;align-items:center;min-height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 15px;font-weight:700;font-size:.95rem;cursor:pointer;text-decoration:none}
+.b2:hover{background:#f1f5f8}
+.b2.pri{background:var(--teal);border-color:var(--teal);color:#fff}
+.b2.pri:hover{background:var(--teal-d)}
+.b2.dng{background:var(--red);border-color:var(--red);color:#fff}
+
+/* ---------- phones and small tablets ---------- */
+@media (max-width:820px){
+  .bar-in{padding:0 12px}
+  .brand{display:none}
+  .row1{justify-content:space-between;gap:10px}
+  .timer{flex-direction:column;align-items:flex-start;gap:2px}
+  #clock{font-size:1.85rem;text-align:left;min-width:0}
+  .r1-end{flex:none}
+  main{padding:14px 12px 80px}
+  .sheet{padding:12px;border-radius:12px}
+  .rubric{display:block;font-size:16px;line-height:1.45}
+  .col{display:block;border-radius:10px;overflow:hidden;margin:0 0 12px}
+  .col:last-child{margin-bottom:0}
+  .cell{padding:11px 13px}
+  h1.ed{font-size:1.25rem}
+  .how{font-size:.9rem}
+  .btn .lbl-long{display:none}
+  .only-wide{display:none!important}
+  .r1-end{gap:7px;align-items:center}
+  .tools{gap:7px;padding:7px 0 9px}
+  .btn{padding:8px 10px}
+  .swatches{gap:5px;padding:0 8px 0 2px}
+}
+@media (max-width:359px){.btn{padding:8px 8px;font-size:.84rem}.sw{width:20px;height:20px}#clock{font-size:1.6rem}}
+@media (min-width:821px){.btn .lbl-short{display:none}.only-narrow{display:none!important}}
+.restart{margin:18px 0 0}
+
+/* ---------- print (fallback route to a PDF) ---------- */
+@media print{
+  @page{size:A4 landscape;margin:12mm}
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .bar,.how,.endnote,.saved,.restart,.toast,.veil{display:none!important}
+  main{max-width:none;padding:0}
+  .sheet{border:0;box-shadow:none;padding:0;border-radius:0}
+  .rubric{display:grid!important;font-size:10pt;line-height:1.35}
+  .col{display:contents!important}
+  .cell.body:focus{background:var(--cell);box-shadow:none}
+  .cell.head:focus,h1.ed:focus{box-shadow:none;background:transparent}
+  .cell.head:focus{background:var(--teal)}
+}
+</style>
+</head>
 <body>
-<header><div class="brand">RUBRIC STUDIO</div><div class="timer" aria-live="polite">⏱ <span id="clock">07:00</span> <span id="timerLabel">· ready when you are</span></div></header>
-<main><section class="hero"><div><div class="eyebrow">A guided 7-minute activity for lecturers</div><h1>Make expectations visible.</h1><p>Answer three quick questions from the presentation, then build one clear, usable rubric row.</p></div><div class="goal"><strong>Your finish line</strong>A mini-rubric row you can take back to your next assessment task.</div></section>
-<section class="content" id="quizSection"><div class="panel"><div class="panel-top"><span class="tag">SECTION A · QUICK CHECK</span><span class="hint">3 questions · about 1 minute</span></div><h2>Start with three ideas from the presentation.</h2><p class="sub">Choose one answer for each. These are quick recall questions to get you ready for the rubric-building activity.</p><div class="worked"><h3>From “Module Development – Rubrics in action”</h3><p>Use the ideas in the presentation as a warm-up. No trick questions.</p><a href="https://view.genially.com/6ad1e4649bb32f669121601b" target="_blank" rel="noopener">Open the presentation ↗</a></div><div class="quiz-question" data-q="q1"><fieldset><legend>1. Which set contains the rubric types named in the presentation?</legend><label class="quiz-option"><input type="radio" name="q1" value="a"><span>Analytical, developmental, holistic, and checklist</span></label><label class="quiz-option"><input type="radio" name="q1" value="b"><span>Essay, oral, practical, and group</span></label><label class="quiz-option"><input type="radio" name="q1" value="c"><span>Formative, summative, diagnostic, and peer</span></label></fieldset><p class="quiz-feedback"></p></div><div class="quiz-question" data-q="q2"><fieldset><legend>2. Which visual formats does the presentation recommend?</legend><label class="quiz-option"><input type="radio" name="q2" value="a"><span>Long paragraphs and footnotes</span></label><label class="quiz-option"><input type="radio" name="q2" value="b"><span>Tables and infographics</span></label><label class="quiz-option"><input type="radio" name="q2" value="c"><span>Audio recordings and music</span></label></fieldset><p class="quiz-feedback"></p></div><div class="quiz-question" data-q="q3"><fieldset><legend>3. What is the presentation’s advice about bullet points?</legend><label class="quiz-option"><input type="radio" name="q3" value="a"><span>Use as many as possible on each slide</span></label><label class="quiz-option"><input type="radio" name="q3" value="b"><span>Avoid all bullets, icons, and diagrams</span></label><label class="quiz-option"><input type="radio" name="q3" value="c"><span>Don’t overuse them; icons and diagrams can help</span></label></fieldset><p class="quiz-feedback"></p></div><div id="quizResult" class="quiz-result" aria-live="polite"></div><div class="actions"><span class="hint">Your answer is marked as soon as you choose it.</span><button class="btn primary" id="beginBuilder" type="button" disabled>Answer all 3 to continue →</button></div></div></section>
-<div class="section-banner hidden" id="builderBanner"><span>SECTION B</span><b>Build a mini-rubric</b><small>About 6 minutes · Create one complete criterion row</small></div>
-<div class="layout hidden" id="builder"><aside class="rail"><div class="rail-title">Section B · 6 minutes</div><div class="step active" data-step="1"><b>1</b><span>Choose a criterion · 1 min</span></div><div class="step" data-step="2"><b>2</b><span>Set the levels · 1 min</span></div><div class="step" data-step="3"><b>3</b><span>Describe quality · 2 min</span></div><div class="step" data-step="4"><b>4</b><span>Weight & take away · 2 min</span></div><div class="rail-note">Facilitator cue: invite participants to use an assessment they teach, or follow the lesson-plan example.</div></aside>
-<div class="content">
-<section class="panel page" data-page="1"><div class="panel-top"><span class="tag">01 · CRITERIA</span><span class="hint">About 1 minute</span></div><h2>What will you assess?</h2><p class="sub">Choose one important aspect of student work. A criterion names the evidence you value, not a task step or a personality trait.</p><div class="worked"><h3>Worked example · Lesson Plan Development</h3><p>Assessment task: develop a 45-minute lesson plan aligned to outcomes, activities, learner needs and assessment.</p><p>Existing criteria in the example:</p><span class="pill">Learning outcomes & alignment</span><span class="pill">Teaching & learning activities</span><span class="pill">Inclusion & learner diversity</span><span class="pill">Assessment strategies</span></div><div class="field"><label for="task">Your assessment task</label><input id="task" placeholder="e.g., lesson plan, case analysis, practical demonstration"></div><div class="field"><label for="criterion">Your criterion</label><input id="criterion" placeholder="e.g., Alignment of learning outcomes and activities"><span class="hint">Tip: Ask, “What quality in the submitted work matters most?”</span></div><div class="actions"><span></span><button class="btn primary next">Choose performance levels →</button></div></section>
-<section class="panel page hidden" data-page="2"><div class="panel-top"><span class="tag">02 · PERFORMANCE LEVELS</span><span class="hint">About 1 minute</span></div><h2>How will you distinguish quality?</h2><p class="sub">Use four levels that are easy to understand and ordered from strongest to least evidence. You can rename them to fit your context.</p><div class="levels"><div class="level"><strong>Exemplary</strong><span>Consistently strong evidence</span></div><div class="level"><strong>Proficient</strong><span>Effective evidence overall</span></div><div class="level"><strong>Developing</strong><span>Partial or uneven evidence</span></div><div class="level"><strong>Novice</strong><span>Limited or missing evidence</span></div></div><div class="field"><label for="whyLevels">Quick check: what should change as performance moves from Novice to Exemplary?</label><input id="whyLevels" placeholder="e.g., alignment becomes more complete, explicit and consistent"></div><div class="callout">Keep the levels parallel: each should describe the same criterion, with a clear difference in quality or extent.</div><div class="actions"><button class="btn secondary back">← Back</button><button class="btn primary next">Write the descriptors →</button></div></section>
-<section class="panel page hidden" data-page="3"><div class="panel-top"><span class="tag">03 · PERFORMANCE DESCRIPTORS</span><span class="hint">About 2 minutes</span></div><h2>Show what each level looks like.</h2><p class="sub">Use observable evidence. Make the differences specific enough that two markers could reach a similar judgement.</p><div class="worked"><h3>Worked example · criterion: Learning outcomes & alignment</h3><p><b>Vague:</b> “Good alignment.”</p><p><b>Clearer:</b> “Outcomes are measurable and each is explicitly practised in a lesson activity and checked by an aligned assessment.”</p></div><div class="field"><label for="exemplary">Exemplary</label><textarea id="exemplary" placeholder="What would strong, complete evidence look like?"></textarea></div><div class="field"><label for="proficient">Proficient</label><textarea id="proficient" placeholder="What is effective, with only a small gap?"></textarea></div><div class="field"><label for="developing">Developing</label><textarea id="developing" placeholder="What is present but partial, uneven or unclear?"></textarea></div><div class="field"><label for="novice">Novice</label><textarea id="novice" placeholder="What is missing, inaccurate or insufficient?"></textarea></div><div class="callout">Descriptor check: Can a marker point to evidence in the student’s work? Have you avoided words like “good” without explaining what they mean?</div><div class="actions"><button class="btn secondary back">← Back</button><button class="btn primary next">Set marks & review →</button></div></section>
-<section class="panel page hidden" data-page="4"><div class="panel-top"><span class="tag">04 · SCORES & WEIGHTING</span><span class="hint">About 2 minutes</span></div><h2>Make the score match the importance.</h2><p class="sub">Choose the total mark for this criterion, then divide it across levels. The example used four criteria worth 25 marks each (100 total).</p><div class="grid2"><div class="field"><label for="weight">Criterion weighting (marks)</label><input type="number" min="1" max="100" id="weight" value="25"></div><div class="field"><label for="total">Assessment total (marks)</label><input type="number" min="1" max="1000" id="total" value="100"></div></div><div class="field"><label>Mark ranges by level</label><div class="row"><div class="field"><label for="rEx">Exemplary</label><input id="rEx" value="22–25"></div><div class="field"><label for="rPr">Proficient</label><input id="rPr" value="18–21"></div><div class="field"><label for="rDe">Developing</label><input id="rDe" value="13–17"></div><div class="field"><label for="rNo">Novice</label><input id="rNo" value="0–12"></div></div><span class="hint">For a 25-mark criterion, the prior example used these ranges. Adjust to fit your weighting.</span><div id="weightFeedback" class="feedback"></div></div><div class="field"><label for="refine">One improvement after your descriptor check</label><input id="refine" placeholder="e.g., replace ‘mostly aligned’ with a countable indicator"></div><div class="actions"><button class="btn secondary back">← Back</button><button class="btn primary" id="finish">Create my take-away →</button></div></section>
-<section class="panel page hidden" data-page="5"><div class="panel-top"><span class="tag">YOUR MINI-RUBRIC</span><span class="hint">Ready to copy or adapt</span></div><h2>You’ve made expectations visible.</h2><p class="sub">Here’s your rubric row. Copy it into your assessment document, or use the prompts as a first draft to discuss with a colleague.</p><div id="summary" class="rubric-output" aria-live="polite"></div><div class="actions"><button class="btn secondary" id="edit">← Keep refining</button><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn secondary" id="pdf">Download PDF</button><button class="btn primary" id="copy">Copy my mini-rubric</button></div></div><p id="copyFeedback" class="hint" aria-live="polite">PDF: choose “Save as PDF” in your browser’s print window.</p><div class="callout facilitator-close"><b>Facilitator close (30 seconds):</b> Ask participants to name one change they will make to a rubric they already use. Remind them that clear criteria and descriptors make expectations visible before students submit their work.</div></section>
-</div></div><div class="footer">A practical starter, not a substitute for aligning the full rubric to your course outcomes and assessment task.</div></main>
+
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <div class="row1">
+      <div class="brand">Rubric Studio</div>
+      <div class="timer" role="timer" aria-label="Time left"><small>Time left</small><span id="clock">08:00</span></div>
+      <div class="r1-end">
+        <button class="btn icon js-undo only-narrow" type="button" aria-label="Undo" title="Undo" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg></button>
+        <button class="btn icon js-redo only-narrow" type="button" aria-label="Redo" title="Redo" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 14 5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/></svg></button>
+        <button class="btn go" id="pdfBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 20h14"/></svg>
+          <span class="lbl-long">Download PDF</span><span class="lbl-short">PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="track" aria-hidden="true"><i id="trackFill"></i></div>
+  <div class="bar-in">
+    <div class="tools" role="toolbar" aria-label="Editing tools">
+      <div class="hlgroup">
+        <button class="btn" id="hlBtn" type="button" title="Highlight the selected text">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 6-6 4 4-6 6z"/><path d="m9 11-2 2v3h3l2-2"/><path d="M4 21h9"/></svg>
+          Highlight
+        </button>
+        <div class="swatches" role="group" aria-label="Highlight colour">
+          <button class="sw" type="button" data-c="y" aria-pressed="true" aria-label="Yellow" title="Yellow"></button>
+          <button class="sw" type="button" data-c="g" aria-pressed="false" aria-label="Green" title="Green"></button>
+          <button class="sw" type="button" data-c="p" aria-pressed="false" aria-label="Pink" title="Pink"></button>
+        </div>
+      </div>
+      <button class="btn" id="unhlBtn" type="button" title="Remove highlight from the selected text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 11 6-6 4 4-6 6z"/><path d="m9 11-2 2v3h3l2-2"/><path d="M4 4l16 16"/></svg>
+        <span class="lbl-long">Remove highlight</span><span class="lbl-short">Remove</span>
+      </button>
+      <button class="btn icon js-undo only-wide" type="button" aria-label="Undo" title="Undo" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
+      </button>
+      <button class="btn icon js-redo only-wide" type="button" aria-label="Redo" title="Redo" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 14 5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/></svg>
+      </button>
+      <span class="gap only-wide"></span>
+      <button class="btn js-reset only-wide" type="button" title="Restore the original rubric and restart the timer">Start over</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <ol class="how">
+    <li><b>1</b><span>Tap any text in the rubric to edit it.</span></li>
+    <li><b>2</b><span>Select words, then use <strong>Highlight</strong> or <strong>Remove highlight</strong>.</span></li>
+    <li><b>3</b><span>Happy with it? <strong>Download PDF</strong>.</span></li>
+  </ol>
+  <p class="endnote" id="endnote" role="status" hidden>Time's up. Finish your last edit and download your PDF.</p>
+
+  <div class="sheet" id="sheet">
+    <h1 class="ed" id="title" contenteditable="true" spellcheck="true" role="textbox" aria-label="Rubric title">Literature Review Rubric</h1>
+    <div class="rubric" id="rubric">
+      <div class="col">
+        <div class="cell head ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Column 1 heading">Assessment Criteria</div>
+        <div class="cell body ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Criterion">Review of previous research<br>[30 marks]</div>
+      </div>
+      <div class="col">
+        <div class="cell head ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 1 heading">Does not meet the required standard<br><mark data-c="y">(0 – 49%)</mark></div>
+        <div class="cell body ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 1 descriptors"><ul><li>Less than five credible sources</li><li>The ability to synthesize and logically and coherently and critically describe and apply previous literature is not evident</li><li>Literature is summarized but not integrated</li><li>No gap identified</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="cell head ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 2 heading"><mark data-c="y">Meets the required standard</mark><br>(50–64%)</div>
+        <div class="cell body ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 2 descriptors"><ul><li>Minimum of five credible sources used</li><li>Application of literature to the student’s research topic is evident</li><li>A good attempt at integrating and synthesizing the literature</li><li><mark data-c="y">Coherent structure</mark> and organization</li><li><mark data-c="y">Lacks depth</mark> and/or <mark data-c="y">logical flow</mark></li></ul></div>
+      </div>
+      <div class="col">
+        <div class="cell head ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 3 heading">Partially exceeds the required standard<br>(65–74%)</div>
+        <div class="cell body ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 3 descriptors"><ul><li>The review has sufficient depth of critical analysis</li><li>The construction of a solid argument is evident</li><li>Independent thinking is demonstrated through synthesis and integration of literature</li><li>The research problem is well positioned in the literature and the gap is articulated</li><li>Argumentation flows logically and is substantiated with references.</li></ul></div>
+      </div>
+      <div class="col">
+        <div class="cell head ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 4 heading">Greatly exceeds the required standard<br>(75–100%)</div>
+        <div class="cell body ed" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Level 4 descriptors"><div>In addition:</div><ul><li>The review indicates a deep understanding of the purpose of the literature review</li><li>The topic or problem is situated within broader scholarly literature</li><li>Sources are relatively recent</li><li>The ability to synthesize and logically discuss and present previous literature is demonstrated throughout.</li></ul></div>
+      </div>
+    </div>
+  </div>
+  <p class="saved" id="savedNote">Your changes stay on this page if it reloads. Nothing is sent anywhere.</p>
+  <p class="only-narrow restart"><button class="b2 js-reset" type="button">Start over with the original rubric</button></p>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden><span id="toastMsg"></span><button type="button" id="toastAct" hidden></button></div>
+
+<div class="veil" id="resetDlg" hidden>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="resetH">
+    <h2 id="resetH">Start over?</h2>
+    <p>This brings back the original rubric, removes your changes and restarts the 8-minute timer.</p>
+    <div class="acts rowy">
+      <button class="b2" type="button" id="resetNo">Keep my changes</button>
+      <button class="b2 dng" type="button" id="resetYes">Start over</button>
+    </div>
+  </div>
+</div>
+
+<div class="veil" id="pdfDlg" hidden>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="pdfH">
+    <h2 id="pdfH">Your PDF is ready</h2>
+    <p id="pdfP">If the download did not start, use one of these.</p>
+    <div class="acts">
+      <a class="b2 pri" id="pdfSave" href="#" download="rubric.pdf">Download the PDF</a>
+      <a class="b2" id="pdfOpen" href="#" target="_blank" rel="noopener">Open the PDF in a new tab</a>
+      <button class="b2" type="button" id="pdfPrint">Print or save from the print window</button>
+      <button class="b2" type="button" id="pdfClose">Close</button>
+    </div>
+  </div>
+</div>
+
 <script>
-const pages=[...document.querySelectorAll('.page')],steps=[...document.querySelectorAll('.step')];let current=1,remaining=420,timer=null,started=false;
-function startClock(){if(started)return;started=true;remaining=360;document.getElementById('clock').textContent='06:00';document.getElementById('timerLabel').textContent='· Section B';timer=setInterval(()=>{remaining=Math.max(0,remaining-1);document.getElementById('clock').textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0');if(!remaining){clearInterval(timer);document.getElementById('timerLabel').textContent='· keep going at your pace'}},1000)}
-function go(n){current=n;pages.forEach(p=>p.classList.toggle('hidden',+p.dataset.page!==n));steps.forEach(s=>{let k=+s.dataset.step;s.classList.toggle('active',k===Math.min(n,4));s.classList.toggle('done',k<n)});window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>go(Math.min(current+1,4))));document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>go(Math.max(current-1,1))));
-function val(id,fallback='[add your draft]'){return document.getElementById(id).value.trim()||fallback}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function makeSummary(){const task=val('task','Assessment task not specified'),criterion=val('criterion','Criterion not specified'),weight=val('weight','25'),total=val('total','100');const levels=[['Exemplary','rEx','exemplary','22–25'],['Proficient','rPr','proficient','18–21'],['Developing','rDe','developing','13–17'],['Novice','rNo','novice','0–12']];return `<div class="rubric-heading"><div class="rubric-kicker">Assessment rubric · Mini-rubric</div><h3>${esc(task)}</h3></div><div class="rubric-meta"><span><b>Criterion:</b> ${esc(criterion)}</span><span><b>Weight:</b> ${esc(weight)} marks</span><span><b>Assessment total:</b> ${esc(total)} marks</span></div><div class="rubric-table-wrap"><table class="rubric-table"><thead><tr><th>Criterion</th>${levels.map(x=>`<th>${x[0]}<small>${esc(val(x[1],x[3]))} marks</small></th>`).join('')}</tr></thead><tbody><tr><td>${esc(criterion)}<span class="rubric-level-score">${esc(weight)} marks</span></td>${levels.map(x=>`<td>${esc(val(x[2]))}</td>`).join('')}</tr></tbody></table></div><div class="rubric-note"><b>Refinement to make:</b> ${esc(val('refine','Review whether descriptors are observable and distinct.'))}</div>`}
-function makeCopyText(){const levels=[['Exemplary','rEx','exemplary','22–25'],['Proficient','rPr','proficient','18–21'],['Developing','rDe','developing','13–17'],['Novice','rNo','novice','0–12']];return `ASSESSMENT RUBRIC\nAssessment: ${val('task','Assessment task not specified')}\nAssessment total: ${val('total','100')} marks\n\nCriterion: ${val('criterion','Criterion not specified')} (${val('weight','25')} marks)\n\n${levels.map(x=>`${x[0]} (${val(x[1],x[3])} marks): ${val(x[2])}`).join('\n\n')}\n\nRefinement to make: ${val('refine','Review whether descriptors are observable and distinct.')}`}
-document.querySelectorAll('#quizSection input[type=radio]').forEach(input=>input.addEventListener('change',()=>{const keys={q1:'a',q2:'b',q3:'c'},why={q1:'The presentation names analytical, developmental, holistic rubrics and a checklist.',q2:'It recommends tables and infographics for visual communication.',q3:'It advises against overusing bullets and suggests icons or diagrams as helpful aids.'};const answers={q1:'Analytical, developmental, holistic, and checklist',q2:'Tables and infographics',q3:'Don’t overuse them; icons and diagrams can help'};let score=0,answered=0;for(const [q,answer] of Object.entries(keys)){const chosen=document.querySelector(`input[name="${q}"]:checked`),box=document.querySelector(`.quiz-question[data-q="${q}"]`),feedback=box.querySelector('.quiz-feedback');if(!chosen){box.classList.remove('correct','incorrect');feedback.textContent='';continue}answered++;const correct=chosen.value===answer;if(correct)score++;box.classList.toggle('correct',correct);box.classList.toggle('incorrect',!correct);feedback.textContent=(correct?'Correct. ':'Not quite. The answer is “'+answers[q]+'.” ')+why[q]}const result=document.getElementById('quizResult'),button=document.getElementById('beginBuilder');result.textContent=answered<3?`${answered} of 3 answered · ${score} correct so far.`:`All 3 answered · You got ${score} of 3. Review the feedback, then continue.`;result.className='quiz-result';button.disabled=answered<3;button.textContent=answered<3?'Answer all 3 to continue →':'Continue to Section B →'}));
-document.getElementById('beginBuilder').addEventListener('click',()=>{document.getElementById('quizSection').classList.add('hidden');document.getElementById('builder').classList.remove('hidden');document.getElementById('builderBanner').classList.remove('hidden');startClock();window.scrollTo({top:0,behavior:'smooth'})});
-document.getElementById('finish').addEventListener('click',()=>{let w=+val('weight','25'),t=+val('total','100'),f=document.getElementById('weightFeedback');f.textContent=w>t?`This criterion (${w}) exceeds the assessment total (${t}). Adjust one of the values.`:`Check that all criterion weightings together add to ${t}. This row contributes ${w} marks.`;f.className='feedback '+(w>t?'':'success');if(w>t)return;document.getElementById('summary').innerHTML=makeSummary();go(5)});
-document.getElementById('edit').addEventListener('click',()=>go(3));document.getElementById('pdf').addEventListener('click',()=>window.print());document.getElementById('copy').addEventListener('click',async()=>{let t=makeCopyText();try{await navigator.clipboard.writeText(t);document.getElementById('copyFeedback').textContent='Copied. Paste it into your rubric or notes.'}catch(e){document.getElementById('copyFeedback').textContent='Select the text above and copy it into your document.'}});
-</script></body></html>
+(function(){
+'use strict';
+
+/* ================= basics ================= */
+var $ = function(id){ return document.getElementById(id); };
+var bar = $('bar'), sheet = $('sheet'), titleEl = $('title');
+var cells = Array.prototype.slice.call(document.querySelectorAll('#rubric .cell'));
+var DURATION = 8 * 60 * 1000;
+var KEY = 'rubric-studio-v2';
+var ORIGINAL = snap();
+
+function store(k, v){ try{ if(v === null) sessionStorage.removeItem(k); else sessionStorage.setItem(k, v); }catch(e){} }
+function load(k){ try{ return sessionStorage.getItem(k); }catch(e){ return null; } }
+
+/* Keep only the markup this page itself produces. */
+var ALLOWED = {UL:1, OL:1, LI:1, DIV:1, P:1, BR:1, MARK:1, B:1, STRONG:1};
+function cleanInto(el, html){
+  var tpl = document.createElement('template');
+  tpl.innerHTML = html;
+  (function walk(node){
+    var kids = Array.prototype.slice.call(node.childNodes);
+    kids.forEach(function(k){
+      if(k.nodeType === 3) return;
+      if(k.nodeType !== 1){ node.removeChild(k); return; }
+      walk(k);
+      if(!ALLOWED[k.nodeName]){
+        while(k.firstChild) node.insertBefore(k.firstChild, k);
+        node.removeChild(k);
+        return;
+      }
+      var c = k.nodeName === 'MARK' ? k.getAttribute('data-c') : null;
+      while(k.attributes.length) k.removeAttribute(k.attributes[0].name);
+      if(k.nodeName === 'MARK') k.setAttribute('data-c', /^[ygp]$/.test(c || '') ? c : 'y');
+    });
+  })(tpl.content);
+  el.innerHTML = '';
+  el.appendChild(tpl.content);
+}
+
+function snap(){
+  return JSON.stringify({t: titleEl.textContent, c: cells.map(function(c){ return c.innerHTML; })});
+}
+function restore(s){
+  var o; try{ o = JSON.parse(s); }catch(e){ return false; }
+  if(!o || !o.c || o.c.length !== cells.length) return false;
+  titleEl.textContent = String(o.t || '');
+  cells.forEach(function(c, i){ cleanInto(c, String(o.c[i] || '')); });
+  return true;
+}
+
+/* ================= toast ================= */
+var toastT = null;
+function toast(msg, actLabel, actFn, ms){
+  $('toastMsg').textContent = msg;
+  var a = $('toastAct');
+  if(actLabel){ a.textContent = actLabel; a.hidden = false; a.onclick = function(){ hideToast(); actFn(); }; }
+  else { a.hidden = true; a.onclick = null; }
+  $('toast').hidden = false;
+  clearTimeout(toastT);
+  toastT = setTimeout(hideToast, ms || 3600);
+}
+function hideToast(){ $('toast').hidden = true; }
+
+/* ================= history (undo / redo) + autosave ================= */
+var hist = [], redo = [], pending = null;
+function all(sel){ return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+function syncButtons(){
+  all('.js-undo').forEach(function(b){ b.disabled = hist.length < 2; });
+  all('.js-redo').forEach(function(b){ b.disabled = !redo.length; });
+}
+function commit(){
+  clearTimeout(pending); pending = null;
+  var s = snap();
+  if(s !== hist[hist.length - 1]){
+    hist.push(s); if(hist.length > 80) hist.shift();
+    redo.length = 0;
+    store(KEY + ':doc', s);
+    syncButtons();
+  }
+}
+function later(){ clearTimeout(pending); pending = setTimeout(commit, 350); }
+function undo(){
+  commit();
+  if(hist.length < 2) return;
+  redo.push(hist.pop());
+  restore(hist[hist.length - 1]);
+  store(KEY + ':doc', hist[hist.length - 1]);
+  syncButtons();
+}
+function redoIt(){
+  commit();
+  if(!redo.length) return;
+  var s = redo.pop();
+  hist.push(s); restore(s); store(KEY + ':doc', s);
+  syncButtons();
+}
+
+/* ================= editing behaviour ================= */
+function cellOf(node){
+  while(node && node !== document){
+    if(node.nodeType === 1 && node.classList && node.classList.contains('ed')) return node;
+    node = node.parentNode;
+  }
+  return null;
+}
+function inSheet(node){ return !!node && (node === sheet || sheet.contains(node)); }
+
+sheet.addEventListener('input', later);
+
+sheet.addEventListener('beforeinput', function(e){
+  var t = e.inputType || '';
+  if(t === 'historyUndo'){ e.preventDefault(); undo(); }
+  else if(t === 'historyRedo'){ e.preventDefault(); redoIt(); }
+  else if(t === 'formatItalic' || t === 'formatUnderline' || t === 'formatStrikeThrough'){ e.preventDefault(); }
+});
+
+document.addEventListener('keydown', function(e){
+  var mod = e.metaKey || e.ctrlKey;
+  var k = (e.key || '').toLowerCase();
+  if(mod && k === 'z'){ e.preventDefault(); if(e.shiftKey) redoIt(); else undo(); }
+  else if(mod && k === 'y'){ e.preventDefault(); redoIt(); }
+  else if(k === 'escape'){ closeDialogs(); }
+});
+
+titleEl.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); titleEl.blur(); } });
+
+/* paste and drop as plain text, so Word / web formatting never comes in */
+function insertPlain(text){
+  var ok = false;
+  try{ ok = document.execCommand('insertText', false, text); }catch(err){ ok = false; }
+  if(ok) return;
+  var sel = window.getSelection();
+  if(!sel || !sel.rangeCount) return;
+  var r = sel.getRangeAt(0);
+  r.deleteContents();
+  var tn = document.createTextNode(text);
+  r.insertNode(tn);
+  r.setStartAfter(tn); r.collapse(true);
+  sel.removeAllRanges(); sel.addRange(r);
+}
+sheet.addEventListener('paste', function(e){
+  var cd = e.clipboardData || window.clipboardData;
+  if(!cd) return;
+  e.preventDefault();
+  var text = cd.getData('text/plain') || cd.getData('Text') || '';
+  if(cellOf(e.target) === titleEl) text = text.replace(/\s+/g, ' ');
+  insertPlain(text);
+  later();
+});
+sheet.addEventListener('drop', function(e){ e.preventDefault(); });
+
+/* ================= highlighting ================= */
+var colour = 'y';
+var lastRange = null, collapsedAt = 0;
+
+document.addEventListener('selectionchange', function(){
+  var s = window.getSelection();
+  if(s && s.rangeCount){
+    var r = s.getRangeAt(0);
+    if(!r.collapsed && inSheet(r.commonAncestorContainer)){ lastRange = r.cloneRange(); collapsedAt = 0; return; }
+  }
+  if(lastRange && !collapsedAt) collapsedAt = Date.now();
+});
+
+function activeRange(){
+  var s = window.getSelection();
+  if(s && s.rangeCount){
+    var r = s.getRangeAt(0);
+    if(!r.collapsed && inSheet(r.commonAncestorContainer)) return r;
+  }
+  /* a tap on a toolbar button can collapse the selection on phones: use what was selected a moment ago */
+  if(lastRange && collapsedAt && Date.now() - collapsedAt < 1500 && inSheet(lastRange.startContainer) && inSheet(lastRange.endContainer)) return lastRange;
+  return null;
+}
+
+function textPieces(range){
+  var root = range.commonAncestorContainer;
+  if(root.nodeType === 3) root = root.parentNode;
+  var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), out = [], n;
+  while((n = walker.nextNode())){
+    if(!range.intersectsNode(n)) continue;
+    var owner = cellOf(n);
+    if(!owner || owner === titleEl) continue;
+    var pn = n.parentNode.nodeName;
+    if(pn === 'UL' || pn === 'OL') continue;
+    var s = 0, e = n.nodeValue.length;
+    if(n === range.startContainer) s = range.startOffset;
+    if(n === range.endContainer) e = range.endOffset;
+    if(e > s) out.push([n, s, e]);
+  }
+  return out;
+}
+function isolate(n, s, e){
+  if(e < n.nodeValue.length) n.splitText(e);
+  if(s > 0) n = n.splitText(s);
+  return n;
+}
+function markOf(n){
+  var p = n.parentNode;
+  while(p && !(p.classList && p.classList.contains('ed'))){
+    if(p.nodeName === 'MARK') return p;
+    p = p.parentNode;
+  }
+  return null;
+}
+function hasText(node){ return /\S/.test(node.textContent || '') || !!(node.querySelector && node.querySelector('br')); }
+/* take one text node out of any <mark> around it, leaving the rest of that mark highlighted */
+function liftOut(t){
+  var m, guard = 0;
+  while((m = markOf(t)) && guard++ < 8){
+    var r = document.createRange();
+    r.setStartAfter(t); r.setEnd(m, m.childNodes.length);
+    var after = r.extractContents();
+    var r2 = document.createRange();
+    r2.setStartBefore(t); r2.setEnd(m, m.childNodes.length);
+    var mid = r2.extractContents();
+    var next = m.nextSibling, parent = m.parentNode;
+    parent.insertBefore(mid, next);
+    if(after.textContent){
+      var m2 = m.cloneNode(false);
+      m2.appendChild(after);
+      parent.insertBefore(m2, next);
+    }
+    if(!m.textContent) parent.removeChild(m);
+  }
+}
+function tidy(cell){
+  var i, list = Array.prototype.slice.call(cell.querySelectorAll('mark,b,strong'));
+  for(i = 0; i < list.length; i++){ if(!list[i].textContent && list[i].parentNode) list[i].parentNode.removeChild(list[i]); }
+  list = Array.prototype.slice.call(cell.querySelectorAll('mark'));
+  for(i = 0; i < list.length; i++){
+    var m = list[i];
+    if(!m.parentNode) continue;
+    var nx = m.nextSibling;
+    while(nx && nx.nodeName === 'MARK' && nx.getAttribute('data-c') === m.getAttribute('data-c')){
+      while(nx.firstChild) m.appendChild(nx.firstChild);
+      nx.parentNode.removeChild(nx);
+      nx = m.nextSibling;
+    }
+  }
+  cell.normalize();
+}
+function clearSelection(){
+  var s = window.getSelection();
+  if(s) s.removeAllRanges();
+  lastRange = null; collapsedAt = 0;
+}
+function applyHighlight(on){
+  var range = activeRange();
+  if(!range){
+    if(!on && unmarkAtCaret()) return;
+    toast(on ? 'Select the words you want to highlight first.' : 'Select the highlighted words first, then tap Remove.');
+    return;
+  }
+  commit();
+  var pieces = textPieces(range), touched = [];
+  if(!pieces.length){ toast('Select words inside the rubric table first.'); return; }
+  pieces.forEach(function(p){
+    var t = isolate(p[0], p[1], p[2]);
+    var cell = cellOf(t);
+    liftOut(t);
+    if(on){
+      var mk = document.createElement('mark');
+      mk.setAttribute('data-c', colour);
+      t.parentNode.insertBefore(mk, t);
+      mk.appendChild(t);
+    }
+    if(touched.indexOf(cell) < 0) touched.push(cell);
+  });
+  touched.forEach(tidy);
+  clearSelection();
+  commit();
+}
+function unmarkAtCaret(){
+  var s = window.getSelection();
+  if(!s || !s.rangeCount) return false;
+  var n = s.anchorNode;
+  if(!n || !inSheet(n)) return false;
+  var m = n.nodeName === 'MARK' ? n : (n.nodeType === 3 ? markOf(n) : null);
+  if(!m) return false;
+  commit();
+  var cell = cellOf(m), parent = m.parentNode;
+  while(m.firstChild) parent.insertBefore(m.firstChild, m);
+  parent.removeChild(m);
+  if(cell) tidy(cell);
+  commit();
+  return true;
+}
+
+/* toolbar buttons must not steal the text selection */
+function keepSelection(el){
+  el.addEventListener('pointerdown', function(e){ e.preventDefault(); });
+  el.addEventListener('mousedown', function(e){ e.preventDefault(); });
+}
+['hlBtn', 'unhlBtn'].forEach(function(id){ keepSelection($(id)); });
+all('.js-undo, .js-redo').forEach(keepSelection);
+var swatches = Array.prototype.slice.call(document.querySelectorAll('.sw'));
+swatches.forEach(function(sw){
+  keepSelection(sw);
+  sw.addEventListener('click', function(){
+    colour = sw.getAttribute('data-c');
+    swatches.forEach(function(x){ x.setAttribute('aria-pressed', x === sw ? 'true' : 'false'); });
+    if(activeRange()) applyHighlight(true);
+  });
+});
+$('hlBtn').addEventListener('click', function(){ applyHighlight(true); });
+$('unhlBtn').addEventListener('click', function(){ applyHighlight(false); });
+all('.js-undo').forEach(function(b){ b.addEventListener('click', undo); });
+all('.js-redo').forEach(function(b){ b.addEventListener('click', redoIt); });
+
+/* ================= timer ================= */
+var deadline = 0, ended = false;
+function startTimer(fresh){
+  var saved = fresh ? 0 : parseInt(load(KEY + ':deadline') || '0', 10);
+  deadline = saved > 0 ? saved : Date.now() + DURATION;
+  store(KEY + ':deadline', String(deadline));
+  ended = false;
+  $('endnote').hidden = true;
+  tick();
+}
+function tick(){
+  var left = Math.max(0, deadline - Date.now());
+  var secs = Math.ceil(left / 1000);
+  var m = Math.floor(secs / 60), s = secs % 60;
+  $('clock').textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  $('trackFill').style.transform = 'scaleX(' + Math.min(1, left / DURATION).toFixed(4) + ')';
+  bar.classList.toggle('warn', left > 0 && secs <= 60);
+  bar.classList.toggle('done', left <= 0);
+  if(left <= 0 && !ended){
+    ended = true;
+    $('endnote').hidden = false;
+    toast("Time's up. Download your PDF when you're ready.", null, null, 6000);
+  }
+}
+setInterval(tick, 250);
+document.addEventListener('visibilitychange', tick);
+
+/* keep the bar pinned above the phone keyboard */
+if(window.visualViewport){
+  var vv = window.visualViewport;
+  var pin = function(){
+    bar.style.transform = '';
+    if(vv.scale && vv.scale > 1.02) return;
+    var d = vv.offsetTop - bar.getBoundingClientRect().top;
+    if(d > 0.5) bar.style.transform = 'translateY(' + Math.round(d) + 'px)';
+  };
+  vv.addEventListener('scroll', pin);
+  vv.addEventListener('resize', pin);
+  window.addEventListener('scroll', pin, {passive: true});
+}
+
+/* ================= dialogs ================= */
+function closeDialogs(){ $('resetDlg').hidden = true; $('pdfDlg').hidden = true; }
+all('.js-reset').forEach(function(b){ b.addEventListener('click', function(){ $('resetDlg').hidden = false; $('resetNo').focus(); }); });
+$('resetNo').addEventListener('click', closeDialogs);
+$('resetYes').addEventListener('click', function(){
+  restore(ORIGINAL);
+  hist = [snap()]; redo = [];
+  store(KEY + ':doc', null);
+  syncButtons();
+  startTimer(true);
+  closeDialogs();
+  window.scrollTo(0, 0);
+});
+['resetDlg', 'pdfDlg'].forEach(function(id){
+  $(id).addEventListener('click', function(e){ if(e.target === $(id)) closeDialogs(); });
+});
+$('pdfClose').addEventListener('click', closeDialogs);
+$('pdfPrint').addEventListener('click', function(){ closeDialogs(); setTimeout(function(){ try{ window.print(); }catch(e){} }, 60); });
+
+/* ================= reading the rubric for the PDF ================= */
+function isTrailingBr(br){
+  var n = br.nextSibling;
+  while(n){
+    if(n.nodeType === 1) return false;
+    if(n.nodeType === 3 && /\S/.test(n.nodeValue)) return false;
+    n = n.nextSibling;
+  }
+  return true;
+}
+function readCell(cell, allBold){
+  var blocks = [], cur = null;
+  function open(bullet, indent){ cur = {bullet: !!bullet, indent: !!indent, runs: []}; blocks.push(cur); }
+  function walk(node, ctx){
+    if(node.nodeType === 3){
+      var pn = node.parentNode.nodeName;
+      var txt = node.nodeValue.replace(/[\s ]+/g, ' ');
+      if(!/\S/.test(txt) && (pn === 'UL' || pn === 'OL' || !cur)) return;
+      if(!cur) open(false, ctx.li);
+      cur.runs.push({t: txt, hl: ctx.hl, b: ctx.b});
+      return;
+    }
+    if(node.nodeType !== 1) return;
+    var n = node.nodeName;
+    if(n === 'BR'){
+      if(isTrailingBr(node)) return;
+      open(false, cur ? (cur.bullet || cur.indent) : ctx.li);
+      return;
+    }
+    var c = {hl: ctx.hl, b: ctx.b, li: ctx.li};
+    if(n === 'MARK') c.hl = node.getAttribute('data-c') || 'y';
+    if(n === 'B' || n === 'STRONG') c.b = true;
+    var block = /^(DIV|P|LI|UL|OL|H[1-6]|BLOCKQUOTE)$/.test(n);
+    if(n === 'LI'){ open(true, false); c.li = true; }
+    else if(block && n !== 'UL' && n !== 'OL'){ open(false, ctx.li); }
+    for(var k = node.firstChild; k; k = k.nextSibling) walk(k, c);
+    if(block) cur = null;
+  }
+  for(var k = cell.firstChild; k; k = k.nextSibling) walk(k, {hl: null, b: !!allBold, li: false});
+  return blocks.filter(function(b){ return b.runs.some(function(r){ return /\S/.test(r.t); }); });
+}
+
+/* ================= PDF writer (no libraries, no network) ================= */
+var W_REG = [278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584,0,556,0,222,556,333,1000,556,556,333,1000,667,333,1000,0,611,0,0,222,222,333,333,350,556,1000,333,1000,500,333,944,0,500,500,278,333,556,556,556,556,260,556,333,737,370,556,584,333,737,333,400,584,333,333,333,556,537,278,333,333,365,556,834,834,834,611,667,667,667,667,667,667,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,500,556,556,556,556,278,278,278,278,556,556,556,556,556,556,556,584,611,556,556,556,556,500,556,500];
+var W_BOLD = [278,333,474,556,556,889,722,238,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,333,333,584,584,584,611,975,722,722,722,722,667,611,778,722,278,556,722,611,833,722,778,667,778,722,667,611,722,667,944,667,667,611,333,278,333,584,556,333,556,611,556,611,556,333,611,611,278,278,556,278,889,611,611,611,611,389,556,333,611,556,778,556,556,500,389,280,389,584,0,556,0,278,556,500,1000,556,556,333,1000,667,333,1000,0,611,0,0,278,278,500,500,350,556,1000,333,1000,556,333,944,0,500,556,278,333,556,556,556,556,280,556,333,737,370,556,584,333,737,333,400,584,333,333,333,611,556,278,333,333,365,556,834,834,834,611,722,722,722,722,722,722,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,556,556,556,556,556,278,278,278,278,611,611,611,611,611,611,611,584,611,611,611,611,611,556,611,556];
+var CP = {0x20AC:128,0x201A:130,0x0192:131,0x201E:132,0x2026:133,0x2020:134,0x2021:135,0x02C6:136,0x2030:137,0x0160:138,0x2039:139,0x0152:140,0x017D:142,0x2018:145,0x2019:146,0x201C:147,0x201D:148,0x2022:149,0x2013:150,0x2014:151,0x02DC:152,0x2122:153,0x0161:154,0x203A:155,0x0153:156,0x017E:158,0x0178:159};
+var SUBST = {0x2010:'-',0x2011:'-',0x2012:'-',0x2015:'-',0x2212:'-',0x2043:'-',0x25CF:'•',0x25E6:'o',0x25AA:'•',0x2023:'>',0x2192:'->',0x2190:'<-',0x2265:'>=',0x2264:'<=',0x2260:'!=',0x2713:'v',0x2714:'v',0x2717:'x',0x2032:"'",0x2033:'"',0x00A0:' ',0x2009:' ',0x200A:' ',0x202F:' ',0x2002:' ',0x2003:' ',0x200B:'',0x200C:'',0x200D:'',0xFEFF:'',0xFE0F:''};
+
+/* JavaScript text -> one byte per character (Windows-1252), which the built-in PDF fonts understand */
+function enc(str){
+  var out = '', i, cp, ch;
+  for(i = 0; i < str.length; i++){
+    cp = str.charCodeAt(i);
+    if(cp >= 0xD800 && cp <= 0xDBFF && i + 1 < str.length){ i++; out += '?'; continue; }
+    if(cp === 9 || cp === 10 || cp === 13){ out += ' '; continue; }
+    if((cp >= 32 && cp <= 126) || (cp >= 160 && cp <= 255)){ out += String.fromCharCode(cp === 160 ? 32 : cp); continue; }
+    if(CP[cp]){ out += String.fromCharCode(CP[cp]); continue; }
+    if(SUBST.hasOwnProperty(cp)){ out += enc(SUBST[cp]); continue; }
+    ch = str.charAt(i);
+    if(ch.normalize){
+      var base = ch.normalize('NFKD').replace(/[̀-ͯ]/g, '');
+      if(base && base !== ch && base.charCodeAt(0) < 256){ out += enc(base); continue; }
+    }
+    if(cp >= 0x0300 && cp <= 0x036f) continue;
+    out += '?';
+  }
+  return out;
+}
+function widthOf(s, bold, fs){
+  var t = bold ? W_BOLD : W_REG, w = 0, i, c;
+  for(i = 0; i < s.length; i++){ c = s.charCodeAt(i); w += (c >= 32 && c < 256) ? t[c - 32] : 500; }
+  return w * fs / 1000;
+}
+function pdfStr(s){
+  var out = '(', i, c;
+  for(i = 0; i < s.length; i++){
+    c = s.charCodeAt(i);
+    if(c === 40 || c === 41 || c === 92) out += '\\' + s.charAt(i);
+    else if(c < 32 || c > 126) out += '\\' + ('000' + c.toString(8)).slice(-3);
+    else out += s.charAt(i);
+  }
+  return out + ')';
+}
+function num(n){ return (Math.round(n * 100) / 100).toString(); }
+
+var COLOURS = {
+  teal: '0.122 0.361 0.478', cell: '0.851 0.871 0.902', white: '1 1 1', ink: '0.08 0.10 0.13',
+  title: '0.09 0.28 0.37', grey: '0.42 0.46 0.51',
+  y: '1 0.949 0', g: '0.725 0.949 0.655', p: '1 0.769 0.882'
+};
+
+function layoutCell(blocks, width, fs, pad){
+  var lh = fs * 1.27, items = [];
+  blocks.forEach(function(bl, bi){
+    var indent = (bl.bullet || bl.indent) ? fs * 1.2 : 0;
+    var maxW = Math.max(20, width - pad * 2 - indent);
+    var toks = [];
+    bl.runs.forEach(function(r){
+      var e = enc(r.t);
+      e.split(/( +)/).forEach(function(part){
+        if(!part) return;
+        var sp = part.charAt(0) === ' ';
+        if(sp) part = ' ';
+        toks.push({s: part, sp: sp, b: !!r.b, hl: r.hl || null, w: widthOf(part, r.b, fs)});
+      });
+    });
+    var lines = [], line = [], w = 0;
+    function flush(){
+      while(line.length && line[line.length - 1].sp) line.pop();
+      if(line.length) lines.push(line);
+      line = []; w = 0;
+    }
+    toks.forEach(function(tk){
+      if(tk.sp){ if(line.length && !line[line.length - 1].sp){ line.push(tk); w += tk.w; } return; }
+      if(w + tk.w > maxW && line.length) flush();
+      if(tk.w <= maxW){ line.push(tk); w += tk.w; return; }
+      var piece = '', pw = 0, i, cw;
+      for(i = 0; i < tk.s.length; i++){
+        cw = widthOf(tk.s.charAt(i), tk.b, fs);
+        if(pw + cw > maxW && piece){
+          line.push({s: piece, sp: false, b: tk.b, hl: tk.hl, w: pw}); flush();
+          piece = ''; pw = 0;
+        }
+        piece += tk.s.charAt(i); pw += cw;
+      }
+      if(piece){ line.push({s: piece, sp: false, b: tk.b, hl: tk.hl, w: pw}); w = pw; }
+    });
+    flush();
+    lines.forEach(function(ln, li){
+      items.push({h: lh, gap: (li === 0 && bi > 0) ? fs * 0.24 : 0, x: pad + indent, toks: ln, bullet: bl.bullet && li === 0, bx: pad + fs * 0.18});
+    });
+  });
+  return items;
+}
+function heightOf(items){ var h = 0; items.forEach(function(it){ h += it.h + it.gap; }); return h; }
+
+function drawItems(ops, items, x0, top, fs, baseColour, lightOnDark){
+  var y = top;
+  items.forEach(function(it){
+    y -= it.gap;
+    var base = y - (it.h - fs) / 2 - fs * 0.78;
+    var x = x0 + it.x, i, tk;
+    /* highlight boxes first, so text sits on top */
+    var runStart = null, runC = null, cx = x;
+    for(i = 0; i <= it.toks.length; i++){
+      tk = it.toks[i];
+      var c = tk ? tk.hl : null;
+      if(c !== runC){
+        if(runC){ ops.push(COLOURS[runC] + ' rg ' + num(runStart - 0.8) + ' ' + num(base - fs * 0.26) + ' ' + num(cx - runStart + 1.6) + ' ' + num(fs * 1.18) + ' re f'); }
+        runC = c; runStart = cx;
+      }
+      if(tk) cx += tk.w;
+    }
+    if(it.bullet){
+      ops.push(COLOURS[baseColour] + ' rg BT /F1 ' + num(fs) + ' Tf ' + num(x0 + it.bx) + ' ' + num(base) + ' Td ' + pdfStr(String.fromCharCode(149)) + ' Tj ET');
+    }
+    /* text, merged into runs that share font and colour */
+    var buf = '', bx = x, bBold = null, bCol = null;
+    function out(){
+      if(buf){ ops.push(COLOURS[bCol] + ' rg BT /' + (bBold ? 'F2' : 'F1') + ' ' + num(fs) + ' Tf ' + num(bx) + ' ' + num(base) + ' Td ' + pdfStr(buf) + ' Tj ET'); }
+      buf = '';
+    }
+    cx = x;
+    for(i = 0; i < it.toks.length; i++){
+      tk = it.toks[i];
+      var col = (tk.hl && lightOnDark) ? 'ink' : baseColour;
+      if(tk.b !== bBold || col !== bCol){ out(); bx = cx; bBold = tk.b; bCol = col; }
+      buf += tk.s; cx += tk.w;
+    }
+    out();
+    y -= it.h;
+  });
+}
+
+function buildPdf(model){
+  var PW = 841.89, PH = 595.28, M = 38, GAP = 1.4, PAD = 6.5;
+  var tableW = PW - M * 2;
+  var fr = [0.75, 1, 1, 1, 1], frSum = 4.75, colW = [], colX = [], x = M, i;
+  for(i = 0; i < 5; i++){ colW.push((tableW - GAP * 4) * fr[i] / frSum); colX.push(x); x += colW[i] + GAP; }
+
+  var titleS = enc(model.title || '').replace(/^ +| +$/g, '');
+  var titleFs = 15;
+  while(titleS && titleFs > 9 && widthOf(titleS, true, titleFs) > tableW) titleFs -= 0.5;
+  var titleH = titleS ? titleFs + 12 : 0;
+  var footH = 16;
+  var avail = PH - M * 2 - titleH - footH;
+
+  var fs, heads, bodies, headH, bodyH, fits = false;
+  function lay(size){
+    fs = size;
+    heads = model.heads.map(function(b, k){ return layoutCell(b, colW[k], fs, PAD); });
+    bodies = model.bodies.map(function(b, k){ return layoutCell(b, colW[k], fs, PAD); });
+    headH = Math.max.apply(null, heads.map(heightOf)) + PAD * 2;
+    bodyH = Math.max.apply(null, bodies.map(heightOf)) + PAD * 2;
+    return headH + GAP + bodyH <= avail;
+  }
+  for(var size = 10; size >= 7; size -= 0.5){ if(lay(size)){ fits = true; break; } }
+  if(!fits) lay(8.5);
+
+  /* split the body across pages if it is still too long */
+  var pages = [], pos = bodies.map(function(){ return 0; });
+  var room = Math.max(60, avail - headH - GAP - PAD * 2), guard = 0;
+  do{
+    var slice = bodies.map(function(items, k){
+      var used = 0, start = pos[k], n = start;
+      while(n < items.length){
+        var need = items[n].h + (n === start ? 0 : items[n].gap);
+        if(used + need > room && n > start) break;
+        used += need; n++;
+      }
+      var part = items.slice(start, n).map(function(it, j){
+        return j === 0 ? {h: it.h, gap: 0, x: it.x, toks: it.toks, bullet: it.bullet, bx: it.bx} : it;
+      });
+      pos[k] = n;
+      return part;
+    });
+    pages.push(slice);
+  }while(pos.some(function(p, k){ return p < bodies[k].length; }) && ++guard < 40);
+
+  var streams = pages.map(function(slice, pi){
+    var ops = [], top = PH - M;
+    if(titleS){
+      ops.push(COLOURS.title + ' rg BT /F2 ' + num(titleFs) + ' Tf ' + num(M) + ' ' + num(top - titleFs) + ' Td ' + pdfStr(titleS) + ' Tj ET');
+      top -= titleH;
+    }
+    var bH = Math.max.apply(null, slice.map(heightOf)) + PAD * 2;
+    for(i = 0; i < 5; i++){
+      ops.push(COLOURS.teal + ' rg ' + num(colX[i]) + ' ' + num(top - headH) + ' ' + num(colW[i]) + ' ' + num(headH) + ' re f');
+      drawItems(ops, heads[i], colX[i], top - PAD, fs, 'white', true);
+      var bt = top - headH - GAP;
+      ops.push(COLOURS.cell + ' rg ' + num(colX[i]) + ' ' + num(bt - bH) + ' ' + num(colW[i]) + ' ' + num(bH) + ' re f');
+      drawItems(ops, slice[i], colX[i], bt - PAD, fs, 'ink', false);
+    }
+    var foot = enc(model.footer || '');
+    ops.push(COLOURS.grey + ' rg BT /F1 7.5 Tf ' + num(M) + ' ' + num(M - 6) + ' Td ' + pdfStr(foot) + ' Tj ET');
+    if(pages.length > 1){
+      var pg = 'Page ' + (pi + 1) + ' of ' + pages.length;
+      ops.push(COLOURS.grey + ' rg BT /F1 7.5 Tf ' + num(PW - M - widthOf(pg, false, 7.5)) + ' ' + num(M - 6) + ' Td ' + pdfStr(pg) + ' Tj ET');
+    }
+    return ops.join('\n');
+  });
+
+  var objs = [];
+  objs[1] = '<< /Type /Catalog /Pages 2 0 R >>';
+  var kids = streams.map(function(_, k){ return (5 + k * 2) + ' 0 R'; }).join(' ');
+  objs[2] = '<< /Type /Pages /Kids [' + kids + '] /Count ' + streams.length + ' >>';
+  objs[3] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>';
+  objs[4] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>';
+  streams.forEach(function(st, k){
+    objs[5 + k * 2] = '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ' + num(PW) + ' ' + num(PH) + '] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ' + (6 + k * 2) + ' 0 R >>';
+    objs[6 + k * 2] = '<< /Length ' + st.length + ' >>\nstream\n' + st + '\nendstream';
+  });
+  var infoId = 5 + streams.length * 2;
+  var rawTitle = (model.title || 'Rubric').replace(/\s+/g, ' '), hex = 'FEFF';
+  for(i = 0; i < rawTitle.length; i++) hex += ('0000' + rawTitle.charCodeAt(i).toString(16)).slice(-4).toUpperCase();
+  objs[infoId] = '<< /Title <' + hex + '> /Producer (Rubric Studio) >>';
+
+  var out = '%PDF-1.4\n', offs = [];
+  for(i = 1; i < objs.length; i++){ offs[i] = out.length; out += i + ' 0 obj\n' + objs[i] + '\nendobj\n'; }
+  var xref = out.length;
+  out += 'xref\n0 ' + objs.length + '\n0000000000 65535 f \n';
+  for(i = 1; i < objs.length; i++) out += ('0000000000' + offs[i]).slice(-10) + ' 00000 n \n';
+  out += 'trailer\n<< /Size ' + objs.length + ' /Root 1 0 R /Info ' + infoId + ' 0 R >>\nstartxref\n' + xref + '\n%%EOF\n';
+  return out;
+}
+
+/* ================= saving the PDF ================= */
+var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+function claudeHost(){ return (window.claude && typeof window.claude.use === 'function') ? window.claude : null; }
+var lastUrl = null;
+
+function currentModel(){
+  var d = new Date();
+  return {
+    title: titleEl.textContent,
+    heads: cells.filter(function(c){ return c.classList.contains('head'); }).map(function(c){ return readCell(c, true); }),
+    bodies: cells.filter(function(c){ return c.classList.contains('body'); }).map(function(c){ return readCell(c, false); }),
+    footer: 'Edited in Rubric Studio · ' + d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear()
+  };
+}
+function fileName(){
+  var raw = titleEl.textContent || 'Rubric';
+  if(raw.normalize) raw = raw.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  var base = raw.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+  return (base || 'Rubric') + '.pdf';
+}
+function isIOS(){
+  var ua = navigator.userAgent || '';
+  return /iP(hone|ad|od)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+function showPdfDialog(msg){
+  $('pdfP').textContent = msg || 'If the download did not start, use one of these.';
+  $('pdfDlg').hidden = false;
+}
+function clickDownload(url, name){
+  var a = document.createElement('a');
+  a.href = url; a.download = name; a.rel = 'noopener'; a.style.display = 'none';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ document.body.removeChild(a); }, 0);
+}
+
+$('pdfBtn').addEventListener('click', function(){
+  commit();
+  var data, name = fileName();
+  try{ data = buildPdf(currentModel()); }
+  catch(err){ toast('Sorry, the PDF could not be created. Try Print instead.', 'Print', function(){ try{ window.print(); }catch(e){} }, 7000); return; }
+  var blob = new Blob([data], {type: 'application/pdf'});
+
+  /* opened inside Claude: downloads go through Claude's own save prompt */
+  var host = claudeHost();
+  if(host){
+    var fail = function(e){ if(!e || e.code !== 'declined') toast('The PDF could not be saved in this view.'); };
+    try{
+      host.use('downloads').then(function(d){
+        if(!d){ fail(); return; }
+        d.save({filename: name, data: blob}).then(function(){ toast('PDF saved.'); }, fail);
+      }, fail);
+    }catch(e){ fail(); }
+    return;
+  }
+
+  if(lastUrl){ try{ URL.revokeObjectURL(lastUrl); }catch(e){} }
+  lastUrl = URL.createObjectURL(blob);
+  $('pdfSave').href = lastUrl; $('pdfSave').setAttribute('download', name);
+  $('pdfOpen').href = lastUrl;
+
+  /* iPhone and iPad: the share sheet (Save to Files, Mail, AirDrop, WhatsApp) is the dependable route */
+  if(isIOS() && typeof File === 'function' && navigator.canShare && navigator.share){
+    var file = null;
+    try{ file = new File([blob], name, {type: 'application/pdf'}); }catch(e){ file = null; }
+    if(file && navigator.canShare({files: [file]})){
+      navigator.share({files: [file], title: name}).then(
+        function(){ toast('PDF ready. Choose Save to Files to keep a copy.'); },
+        function(e){ if(!e || e.name !== 'AbortError') showPdfDialog('Sharing did not open. Use one of these instead.'); }
+      );
+      return;
+    }
+  }
+
+  clickDownload(lastUrl, name);
+  toast('PDF downloaded.', "Didn't get it?", function(){ showPdfDialog(); }, 7000);
+});
+
+/* ================= start ================= */
+var savedDoc = load(KEY + ':doc');
+if(savedDoc && !restore(savedDoc)) restore(ORIGINAL);
+hist = [snap()];
+syncButtons();
+startTimer(false);
+})();
+</script>
+</body>
+</html>
